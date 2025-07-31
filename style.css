@@ -1,8 +1,7 @@
-/* Layout grid */
 .grid-container { 
   display: grid;
-  grid-template-columns: 1fr 3fr; /* Menu e conteúdo */
-  grid-template-rows: auto 1fr auto; /* Header, conteúdo, footer */
+  grid-template-columns: 1fr 3fr; 
+  grid-template-rows: auto 1fr auto; 
   grid-template-areas: 
     "header header"
     "menu main"
@@ -50,10 +49,10 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
   .grid-container {
-    grid-template-columns: 1fr; /* remove menu */
+    grid-template-columns: 1fr;
     grid-template-areas:
       "header"
       "main"
@@ -63,13 +62,11 @@
     display: none;
   }
 }
-
-
 :root {
   --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
 }
 
-.profile-pic2 {
+.profile-pic3 {
   position: relative;
   width: 183px;
   height: 183px;
@@ -81,8 +78,8 @@
   margin-top: 20px;
 }
 
-/* CD girando atrás */
-.profile-pic2:before {
+
+.profile-pic3:before {
   content: "";
   background: var(--cd-image);
   position: absolute;
@@ -98,12 +95,12 @@
   border-radius: 50%;
 }
 
-.profile-pic2:hover:before {
+.profile-pic3:hover:before {
   right: -75px;
 }
 
-/* Foto na frente */
-.profile-pic2 img {
+
+.profile-pic3 img {
   position: relative;
   width: 100%;
   height: 100%;
@@ -113,8 +110,8 @@
   object-fit: cover;
 }
 
-/* Efeito brilho (opcional) */
-.profile-pic2:after {
+
+.profile-pic3:after {
   content: "";
   position: absolute;
   top: 0;
@@ -138,6 +135,110 @@
   --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
 }
 
+.profile-pic2 {
+  position: relative;
+  width: 183px;
+  height: 183px;
+}
+
+.profile-pic2 img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.music-player2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+  opacity: 0; /* invisível */
+  pointer-events: none;
+}
+
+.profile-pic2 {
+  position: relative;
+  width: 183px;
+  height: 183px;
+  filter: drop-shadow(0 0 0.25rem gray);
+  overflow: visible;
+  margin-left: 0px ; 
+  border-radius: 12px;
+  margin-right: 0;
+  margin-top: 20px;
+}
+
+
+.profile-pic2:before {
+  content: "";
+  background: var(--cd-image);
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  animation: spin 5s linear infinite;
+  transition: right 0.5s ease;
+  border-radius: 50%;
+}
+
+.profile-pic2:hover:before {
+  right: -75px;
+}
+
+
+.profile-pic2 img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: 2;
+  display: block;
+  object-fit: cover;
+}
+
+
+.profile-pic2:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(150deg, rgba(255,255,255,0.4),
+    rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6));
+  pointer-events: none;
+  border-radius: 12px;
+  z-index: 1;
+}
+.music-player2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+:root {
+  --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
+}
+
 .profile-pic {
   position: relative;
   width: 183px;
@@ -149,7 +250,7 @@
   margin-right: 0;
 }
 
-/* CD girando atrás */
+
 .profile-pic:before {
   content: "";
   background: var(--cd-image);
@@ -170,7 +271,7 @@
   right: -75px;
 }
 
-/* Foto na frente */
+
 .profile-pic img {
   position: relative;
   width: 100%;
@@ -181,7 +282,7 @@
   object-fit: cover;
 }
 
-/* Efeito brilho (opcional) */
+
 .profile-pic:after {
   content: "";
   position: absolute;

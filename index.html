@@ -11,14 +11,18 @@
     <header class="header">Central Bunnies</header>
     <nav class="menu">
 
-      <div class="profile-pic" title="Attention">
+      <div class="profile-pic" title="attention">
         <img src="https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/0x1900-000000-80-0-0.jpg" />
+      
       </div>
 
-      <div class="profile-pic2" title="Get Up">
-        <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
+   <div class="profile-pic2" id="getup">
+  <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
+  <audio id="getup-audio" src="musica.mp3"></audio> 
+</div>
+      <div class="profile-pic3" title="supernatural">
+        <img src="https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/0x1900-000000-80-0-0.jpg" />
       </div>
-
     </nav>
     <main class="main">
       <p> <h1 style="text-align: center;">História do NewJeans</h1>
@@ -39,9 +43,27 @@ Desde o debut, o NewJeans vem crescendo rápido, recebendo prêmios importantes,
       <p>Mais conteúdo aqui...</p>
     </main>
     <footer class="footer">Central Bunnies © 2025</footer>
+
   </div>
 
-
-
-</body>
+  </body>
 </html>
+
+<div class="profile-pic2" id="getup">
+  <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
+  <audio id="getup-audio" src="musica.mp3"></audio>
+</div>
+
+<script>
+  const capa = document.getElementById('getup');
+  const audio = document.getElementById('getup-audio');
+
+  capa.addEventListener('mouseenter', () => {
+    audio.currentTime = 0;
+    audio.play();
+  });
+
+  capa.addEventListener('mouseleave', () => {
+    audio.pause();
+  });
+</script>
