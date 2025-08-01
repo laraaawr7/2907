@@ -32,7 +32,7 @@ body {
 .header {
  grid-area: header;
   background: linear-gradient(500deg, #0e4b7c, #ffffff 180%);
-  padding: 120px;
+  padding: 70px;
   text-align:center;
   color: white;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

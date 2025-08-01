@@ -25,17 +25,20 @@
       Faixas mais populares:
       <br><br>
 
-      <div class="profile-pic" title="attention">
+      <div class="profile-pic" id="att" title="attention">
         <img src="https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/0x1900-000000-80-0-0.jpg" />
+         <audio id="att-audio" src="att.mp3"></audio> 
       </div>
 
-      <div class="profile-pic2" id="getup">
+      <div class="profile-pic2" id="getup" title="get up">
         <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
-        <audio id="getup-audio" src="musica.mp3"></audio> 
+        <audio id="getup-audio" src="getup.mp3"></audio> 
       </div>
 
-      <div class="profile-pic3" title="supernatural">
+    
+      <div class="profile-pic3" id="spn" title="supernatural">
         <img src="https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/0x1900-000000-80-0-0.jpg" />
+        <audio id="spn-audio" src="spn.mp3"></audio> 
       </div>
     </nav>
 
@@ -57,7 +60,6 @@
     <footer class="footer">Central NewJeans © 2025</footer>
   </div>
 
-  <!-- POP-UP -->
   <div id="popup" style="
     position: fixed;
     top: 0; left: 0;
@@ -104,29 +106,48 @@
     const popup = document.getElementById('popup');
     const btnSim = document.getElementById('sim');
     const btnNao = document.getElementById('nao');
-    const audio = document.getElementById('getup-audio');
-    const capa = document.getElementById('getup');
 
+    const audiogetup = document.getElementById('getup-audio');
+    const capagetup = document.getElementById('getup');
+
+    const audiospn = document.getElementById('spn-audio');
+    const capaspn = document.getElementById('spn');
+
+      const audioatt = document.getElementById('att-audio');
+    const capaatt = document.getElementById('att');
+
+    capagetup.addEventListener('mouseenter', () => {
+      audiogetup.currentTime = 0;
+      audiogetup.play();
+    });
+    capagetup.addEventListener('mouseleave', () => {
+      audiogetup.pause();
+    });
+
+    capaspn.addEventListener('mouseenter', () => {
+      audiospn.currentTime = 0;
+      audiospn.play();
+    });
+    capaspn.addEventListener('mouseleave', () => {
+      audiospn.pause();
+    });
+
+     capaatt.addEventListener('mouseenter', () => {
+      audioatt.currentTime = 0;
+      audioatt.play();
+    });
+    capaatt.addEventListener('mouseleave', () => {
+      audioatt.pause();
+    });
+
+
+   
     function desbloquear() {
-      audio.play().then(() => {
-        audio.pause();
-        popup.style.display = 'none';
-      }).catch(() => {
-        popup.style.display = 'none';
-      });
+      popup.style.display = 'none';
     }
 
     btnSim.addEventListener('click', desbloquear);
     btnNao.addEventListener('click', desbloquear);
-
-    capa.addEventListener('mouseenter', () => {
-      audio.currentTime = 0;
-      audio.play();
-    });
-
-    capa.addEventListener('mouseleave', () => {
-      audio.pause();
-    });
   </script>
 </body>
 </html>
