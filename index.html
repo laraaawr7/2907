@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central NewJeans</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+  </div> 
+<div class="login-container">
+  <div class="auth-buttons">
+    <a href="login.html" class="btn-login">Entrar</a>
+    <a href="login.html" class="btn-signup">Criar uma conta</a>
+  </div>
+</div>
+
+  <div class="grid-container">
+    <header class="header">
+
+Central NewJeans
+
+    </header>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="historia.html">História</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="bubble.html">Bubble</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu">
+      Hits da semana:
+      <br><br>
+
+      <div class="profile-pic" id="att" title="attention">
+        <img src="https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/0x1900-000000-80-0-0.jpg" />
+        <audio id="att-audio" src="att.mp3"></audio> 
+      </div>
+
+      <div class="profile-pic2" id="getup" title="get up">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
+        <audio id="getup-audio" src="getup.mp3"></audio> 
+      </div>
+
+      <div class="profile-pic3" id="spn" title="supernatural">
+        <img src="https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/0x1900-000000-80-0-0.jpg" />
+        <audio id="spn-audio" src="spn.mp3"></audio> 
+      </div>
+    </nav>
+
+    <main class="main">
+      <h1 style="text-align: center; color: white;">História do NewJeans</h1>
+      <p class="pum"> 
+        NewJeans é um grupo feminino sul-coreano formado pela ADOR, uma subsidiária da HYBE Corporation, que estreou oficialmente em julho de 2022. O grupo rapidamente chamou a atenção do público e da mídia pelo seu estilo único, que combina uma sonoridade fresca e retrô com visuais modernos e uma identidade visual marcante.
+
+        O nome “NewJeans” foi escolhido para representar a ideia de um novo ícone de moda e cultura, assim como o jeans é uma peça clássica e atemporal do vestuário, simbolizando conforto e estilo que atravessam gerações. Elas vieram para trazer uma vibe nova e descolada ao cenário do K-pop.
+
+        Antes do debut, as integrantes passaram por um rigoroso processo de treinamento, focado não apenas em performance, mas também em criar uma conexão genuína com os fãs. Seu debut veio com o lançamento do mini-álbum New Jeans, que contou com músicas que rapidamente se tornaram hits, como “Attention” e “Hype Boy”.
+
+        Além do sucesso musical, NewJeans conquistou muitos seguidores com seu estilo descontraído, acessível e seu jeito autêntico, destacando-se da típica imagem “idol” tradicional. O grupo é reconhecido por representar uma nova geração, mesclando talento, carisma e uma forte presença digital.
+
+        Desde o debut, o NewJeans vem crescendo rápido, recebendo prêmios importantes, participando de programas televisivos e colaborando com diversas marcas internacionais. Elas são consideradas uma das promessas mais fortes da nova safra do K-pop.
+      </p>
+    </main>
+
+    <footer class="footer">Central NewJeans © 2025</footer>
+  </div>
+
+  <div id="popup" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  ">
+    <div style="
+      background: #0e4b7c;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
+      width: 280px;
+    ">
+      <p style="margin-bottom: 15px;">Deseja receber notificações?</p>
+      <button id="sim" style="
+        background: white;
+        color: #0e4b7c;
+        border: none;
+        padding: 8px 15px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-right: 8px;
+      ">Sim</button>
+      <button id="nao" style="
+        background: white;
+        color: #0e4b7c;
+        border: none;
+        padding: 8px 15px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+      ">Não</button>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const btnSim = document.getElementById('sim');
+    const btnNao = document.getElementById('nao');
+
+    const audiogetup = document.getElementById('getup-audio');
+    const capagetup = document.getElementById('getup');
+
+    const audiospn = document.getElementById('spn-audio');
+    const capaspn = document.getElementById('spn');
+
+    const audioatt = document.getElementById('att-audio');
+    const capaatt = document.getElementById('att');
+
+    capagetup.addEventListener('mouseenter', () => {
+      audiogetup.currentTime = 0;
+      audiogetup.play();
+    });
+    capagetup.addEventListener('mouseleave', () => {
+      audiogetup.pause();
+    });
+
+    capaspn.addEventListener('mouseenter', () => {
+      audiospn.currentTime = 0;
+      audiospn.play();
+    });
+    capaspn.addEventListener('mouseleave', () => {
+      audiospn.pause();
+    });
+
+    capaatt.addEventListener('mouseenter', () => {
+      audioatt.currentTime = 0;
+      audioatt.play();
+    });
+    capaatt.addEventListener('mouseleave', () => {
+      audioatt.pause();
+    });
+
+    
+    function desbloquear() {
+      popup.style.display = 'none';
+    }
+
+    btnSim.addEventListener('click', desbloquear);
+    btnNao.addEventListener('click', desbloquear);
+
+    
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('loaded'); 
+        setTimeout(() => {
+          popup.style.display = 'flex'; 
+        }, 600); 
+      }, 1500); 
+    });
+  </script>
+</body>
+</html>
