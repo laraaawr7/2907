@@ -1,0 +1,128 @@
+.btn-home {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #0e4b7c;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 999; 
+}
+
+.btn-home:hover {
+  background-color: #98b8fc;
+  color: white;
+}
+
+
+.btn-home:hover {
+  background-color: #98b8fc;
+  color: white;
+}
+
+body { 
+  background-image: url('download.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  background: rgba(14, 75, 124, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.auth-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.auth-toggle button {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 16px;
+  border-radius: 8px 8px 0 0;
+  transition: 0.3s;
+  margin: 0 5px;
+}
+
+.auth-toggle button.active {
+  background: white;
+  color: #0e4b7c;
+  font-weight: bold;
+}
+
+.auth-forms .auth-form {
+  display: none;
+  flex-direction: column;
+}
+
+.auth-forms .auth-form.active {
+  display: flex;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.auth-form label {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.auth-form input {
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.auth-form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0e4b7c;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #98b8fc;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+}

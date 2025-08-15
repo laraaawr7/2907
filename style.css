@@ -78,7 +78,7 @@ body {
 
 .navbar {
   grid-area: nav;
-   background: linear-gradient(500deg, rgba(14, 75, 124), rgba(255, 255, 255) 180%);
+   background: linear-gradient(500deg, rgba(14, 75, 124), rgba(255, 255, 255) 200%);
   padding: 12px 0;
   text-align: center;
 
@@ -103,7 +103,7 @@ body {
 }
 
 .navbar a:hover {
-  color:  #5c758a;
+  color:  #3a5163;
 }
 
 
