@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="login.css" />
 </head>
 <body>
+  <button id="btn-home" class="btn-home">Voltar para Início</button>
+
+
   <div class="login-container">
     <div class="auth-toggle">
       <button id="btn-login-tab" class="active">Entrar</button>
       <button id="btn-signup-tab">Criar Conta</button>
      
-<button id="btn-home" class="btn-home" link rel="index.html">Voltar para Início</button>
 
     </div>
 
@@ -87,6 +89,8 @@
       localStorage.setItem(email, JSON.stringify(user));
       alert('Conta criada com sucesso!');
       loginTab.click(); 
+      localStorage.setItem("loggedUser", username);
+
     });
 
     
@@ -110,10 +114,15 @@
      
     
     });
+
+    document.getElementById("btn-home").addEventListener("click", () => {
+    window.location.href = "index.html";
+}); 
+
   </script>
 
     </div>
-  <button id="btn-home" class="btn-home">Voltar para Início</button>
+
 
   <script>
     
