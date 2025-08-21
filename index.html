@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Central NewJeans</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+
+
   <div id="loader">
     <div class="spinner"></div>
   </div> 
@@ -48,8 +51,65 @@
     </nav>
 
     <main class="main">
+
+      <div id="lastfm-data" style="text-align:center; margin:20px;">
+  <h2>🎵 Top músicas do NewJeans no Last.fm</h2>
+<canvas id="topTracksChart" style="max-width:700px; margin:auto;"></canvas>
+</div>
+<script>
+const apiKey = "a71bbaa5dc59f9c44d82c577105fa61f"; 
+const artist = "NewJeans";
+
+async function loadTopTracksChart() {
+  try {
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${apiKey}&format=json&limit=5`);
+    const data = await response.json();
+
+    const trackNames = data.toptracks.track.map(t => t.name);
+    const playCounts = data.toptracks.track.map(t => parseInt(t.playcount));
+
+    const ctx = document.getElementById('topTracksChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: trackNames,
+        datasets: [{
+          label: 'Scrobbles',
+          data: playCounts,
+          backgroundColor: 'rgba(14, 75, 124, 0.7)',
+          borderColor: 'rgba(14, 75, 124, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Top 5 músicas do NewJeans'
+          }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+  } catch (error) {
+    console.error("Erro ao carregar dados do Last.fm:", error);
+  }
+}
+
+
+window.addEventListener('load', loadTopTracksChart);
+</script>
+
       <h1 style="text-align: center; color: white;">História do NewJeans</h1>
       <p class="pum"> 
+
+    
+
         NewJeans é um grupo feminino sul-coreano formado pela ADOR, uma subsidiária da HYBE Corporation, que estreou oficialmente em julho de 2022. O grupo rapidamente chamou a atenção do público e da mídia pelo seu estilo único, que combina uma sonoridade fresca e retrô com visuais modernos e uma identidade visual marcante.
 
         O nome “NewJeans” foi escolhido para representar a ideia de um novo ícone de moda e cultura, assim como o jeans é uma peça clássica e atemporal do vestuário, simbolizando conforto e estilo que atravessam gerações. Elas vieram para trazer uma vibe nova e descolada ao cenário do K-pop.
@@ -113,5 +173,7 @@
       welcomeDiv.textContent = `Bem-vindo(a), ${username}!`;
     }
   </script>
+  
+
 </body>
 </html>
