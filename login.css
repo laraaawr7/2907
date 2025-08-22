@@ -119,9 +119,56 @@ body {
   color: white;
 }
 
-@media (max-width: 400px) {
+
+
+@media (max-width: 768px) {
   .login-container {
     width: 90%;
+    padding: 25px;
+  }
+
+  .btn-home {
+    width: 120px;
+    height: 45px;
+    font-size: 14px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .auth-toggle button {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
+  .auth-form input,
+  .auth-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .login-container {
+    width: 95%;
     padding: 20px;
+  }
+
+  .btn-home {
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .auth-toggle button {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .auth-form input,
+  .auth-form button {
+    font-size: 12px;
+    padding: 6px;
   }
 }

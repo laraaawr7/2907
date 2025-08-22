@@ -14,8 +14,6 @@
     <div class="spinner"></div>
   </div> 
 
-  <div id="welcome-msg" style="text-align:center; color:white; margin-bottom:10px;"></div>
-
   <div class="login-container">
     <div class="auth-buttons">
       <a href="login.html" class="btn-login">Entrar</a>
@@ -25,6 +23,9 @@
 
   <div class="grid-container">
     <header class="header">Central NewJeans</header>
+    <div id="welcome-msg" class="welcome-msg" style="grid-area: welcome;"></div>
+
+
     <nav class="navbar">
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -35,7 +36,7 @@
     </nav>
 
     <nav class="menu">
-      Hits da semana:<br><br>
+      <br><br>
       <div class="profile-pic" id="att" title="attention">
         <img src="https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/0x1900-000000-80-0-0.jpg" />
         <audio id="att-audio" src="att.mp3"></audio> 
@@ -52,28 +53,40 @@
 
     <main class="main">
 
-      <div id="lastfm-data" style="text-align:center; margin:20px;">
-  <h2>🎵 Top músicas do NewJeans no Last.fm</h2>
-<canvas id="topTracksChart" style="max-width:700px; margin:auto;"></canvas>
+      <div id="lastfm-data" style="text-align:center; margin:20px; color: white;">
+  <h2>Músicas com mais scrobbles no Last.fm</h2>
+<canvas id="topTracksChart" style="max-width:900px; height:300px; margin:auto;"></canvas>
 </div>
 <script>
-const apiKey = "a71bbaa5dc59f9c44d82c577105fa61f"; 
-const artist = "NewJeans";
-
 async function loadTopTracksChart() {
+  const apiKey = "a71bbaa5dc59f9c44d82c577105fa61f"; 
+  const artist = "NewJeans";
+
   try {
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${apiKey}&format=json&limit=5`);
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${apiKey}&format=json&limit=10`);
     const data = await response.json();
 
-    const trackNames = data.toptracks.track.map(t => t.name);
-    const playCounts = data.toptracks.track.map(t => parseInt(t.playcount));
+   
+    let trackNames = data.toptracks.track.map(t => t.name);
+    let playCounts = data.toptracks.track.map(t => parseInt(t.playcount));
+
+  
+    let combined = trackNames.map((name, i) => ({ name, count: playCounts[i] }));
+
+    combined.sort((a, b) => b.count - a.count);
+
+    trackNames = combined.map(item => item.name);
+    playCounts = combined.map(item => item.count);
 
     const ctx = document.getElementById('topTracksChart').getContext('2d');
+
     new Chart(ctx, {
       type: 'bar',
       data: {
         labels: trackNames,
         datasets: [{
+          borderRadius: 10,
+          borderSkipped: false,
           label: 'Scrobbles',
           data: playCounts,
           backgroundColor: 'rgba(14, 75, 124, 0.7)',
@@ -87,11 +100,20 @@ async function loadTopTracksChart() {
           legend: { display: false },
           title: {
             display: true,
-            text: 'Top 5 músicas do NewJeans'
+           
+            color: 'white'
           }
         },
         scales: {
-          y: { beginAtZero: true }
+          x: {
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.2)' }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: 'white' },
+            grid: { color: 'rgba(255,255,255,0.2)' }
+          }
         }
       }
     });
@@ -101,8 +123,8 @@ async function loadTopTracksChart() {
   }
 }
 
-
 window.addEventListener('load', loadTopTracksChart);
+
 </script>
 
       <h1 style="text-align: center; color: white;">História do NewJeans</h1>

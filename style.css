@@ -4,6 +4,22 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-msg {
+  background-color: rgba(14, 75, 124, 0.85);
+  color: white;
+  text-align: center;
+  padding: 12px 20px;
+  margin: 10px auto 20px auto;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .auth-buttons {
@@ -21,7 +37,6 @@ body {
   transition: 0.5s;
   text-decoration: none;
   display: inline-block; 
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .btn-login {
@@ -43,12 +58,14 @@ body {
   color: white;
 }
 
+
 .grid-container { 
   display: grid;
   grid-template-columns: 1fr 3fr; 
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto auto 1fr auto; 
   grid-template-areas: 
     "header header"
+    "welcome welcome"
     "nav nav"
     "menu main"
     "footer footer";
@@ -58,30 +75,21 @@ body {
   box-sizing: border-box;
 }
 
-
-.pum{
-  font-size:medium;
-}
-
-
 .header {
- grid-area: header;
+  grid-area: header;
   background: rgba(14, 75, 124, 0.80);
   padding: 70px;
   text-align:center;
   color: white;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1.8rem;
   font-weight: 250;
-  
 }
 
 .navbar {
   grid-area: nav;
-   background: linear-gradient(500deg, rgba(14, 75, 124), rgba(255, 255, 255) 200%);
+  background: linear-gradient(500deg, rgba(14, 75, 124), rgba(255, 255, 255) 200%);
   padding: 12px 0;
   text-align: center;
-
 }
 
 .navbar ul {
@@ -97,31 +105,27 @@ body {
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-weight: 250;
+  font-weight: 200;
   transition: color 0.3s;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .navbar a:hover {
-  color:  #3a5163;
+  color: #3a5163;
 }
-
-
 
 .menu {
   grid-area: menu;
   background-color: #0e4b7c; 
   padding: 20px;
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .main {
   grid-area: main;
   background-color: #4a779b;
   padding: 20px;
-  font-family: sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  color: white;
 }
 
 .footer {
@@ -131,39 +135,34 @@ body {
   text-align: center;
   font-size: 0.9rem;
   color: #444;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pum {
+  font-size: 100%;
+  color: white;
+  word-spacing: normal;
+  font-weight: 80;
 }
 
 
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "main"
-      "footer";
-  }
-  .menu {
-    display: none;
-  }
-}
 :root {
   --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
 }
 
-.profile-pic3 {
+.profile-pic, .profile-pic2, .profile-pic3 {
   position: relative;
   width: 183px;
   height: 183px;
   filter: drop-shadow(0 0 0.25rem gray);
   overflow: visible;
-  margin-left: 0px ; 
-  border-radius: 12px;
+  margin-left: 0; 
   margin-right: 0;
   margin-top: 20px;
+  border-radius: 12px;
 }
 
-
+.profile-pic:before, 
+.profile-pic2:before,
 .profile-pic3:before {
   content: "";
   background: var(--cd-image);
@@ -180,11 +179,14 @@ body {
   border-radius: 50%;
 }
 
+.profile-pic:hover:before,
+.profile-pic2:hover:before,
 .profile-pic3:hover:before {
   right: -75px;
 }
 
-
+.profile-pic img,
+.profile-pic2 img,
 .profile-pic3 img {
   position: relative;
   width: 100%;
@@ -195,7 +197,8 @@ body {
   object-fit: cover;
 }
 
-
+.profile-pic:after,
+.profile-pic2:after,
 .profile-pic3:after {
   content: "";
   position: absolute;
@@ -203,8 +206,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    linear-gradient(150deg, rgba(255,255,255,0.4),
+  background: linear-gradient(150deg, rgba(255,255,255,0.4),
     rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6));
   pointer-events: none;
   border-radius: 12px;
@@ -216,238 +218,127 @@ body {
   to { transform: rotate(360deg); }
 }
 
-:root {
-  --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
-}
 
-.profile-pic2 {
-  position: relative;
-  width: 183px;
-  height: 183px;
-}
-
-.profile-pic2 img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.music-player2 {
-  position: absolute;
+#loader {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  pointer-events: none;
+  background: #4a779b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 90;
 }
 
-.profile-pic2 {
-  position: relative;
-  width: 183px;
-  height: 183px;
-  filter: drop-shadow(0 0 0.25rem gray);
-  overflow: visible;
-  margin-left: 0px ; 
-  border-radius: 12px;
-  margin-right: 0;
-  margin-top: 20px;
-}
-
-
-.profile-pic2:before {
-  content: "";
-  background: var(--cd-image);
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 150px;
-  height: 150px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 0;
-  animation: spin 5s linear infinite;
-  transition: right 0.5s ease;
+.spinner {
+  border: 8px solid; 
+  border-top: 8px solid transparent;
   border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 0.9s linear infinite;
+  color: #0e4b7c;
 }
 
-.profile-pic2:hover:before {
-  right: -75px;
-}
-
-
-.profile-pic2 img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  z-index: 2;
-  display: block;
-  object-fit: cover;
+.loaded #loader {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 
 
-.profile-pic2:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(150deg, rgba(255,255,255,0.4),
-    rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6));
-  pointer-events: none;
-  border-radius: 12px;
-  z-index: 1;
-}
-.music-player2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; 
-  opacity: 0; 
-  pointer-events: none; 
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-:root {
-  --cd-image: url('https://fluorescent-lights.neocities.org/Digital-CD-Disk-Vector-Transparent-PNG.png');
-}
-
-.profile-pic {
-  position: relative;
-  width: 183px;
-  height: 183px;
-  filter: drop-shadow(0 0 0.25rem gray);
-  overflow: visible;
-  margin-left: 0px ; 
-  border-radius: 12px;
-  margin-right: 0;
+#topTracksChart {
+  font-family: 'Lucida Sans', sans-serif;
+  max-width: 700px;
+  margin: auto;
 }
 
 
-.profile-pic:before {
-  content: "";
-  background: var(--cd-image);
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 150px;
-  height: 150px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  z-index: 0;
-  animation: spin 5s linear infinite;
-  transition: right 0.5s ease;
-  border-radius: 50%;
-}
-
-.profile-pic:hover:before {
-  right: -75px;
-}
-
-
-.profile-pic img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  z-index: 2;
-  display: block;
-  object-fit: cover;
-}
-
-
-.profile-pic:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(150deg, rgba(255,255,255,0.4),
-    rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6));
-  pointer-events: none;
-  border-radius: 12px;
-  z-index: 1;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.pum{
-  word-spacing: 800%;
-  font-size:140%;
-   color: white;
-}
-
-
- #loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #4a779b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 90;
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
   }
-
-  .spinner {
-    border: 8px solid ; 
-    border-top: 8px solid transparent;
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    animation: spin 0.9s linear infinite;
-    color:#0e4b7c;
+  .menu {
+    display: none;
   }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  .header {
+    padding: 40px 20px;
+    font-size: 1.5rem;
   }
-
-  .loaded #loader {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.9s ease, visibility 0.9s ease;
+  .navbar a {
+    font-size: 18px;
   }
-  #welcome-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0e4b7c;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    z-index: 1000;
 }
 
-    #chart-container {
-      width: 90%;
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+@media (max-width: 768px) {
+  .profile-pic, .profile-pic2, .profile-pic3 {
+    width: 140px;
+    height: 140px;
+  }
+  .profile-pic:before,
+  .profile-pic2:before,
+  .profile-pic3:before {
+    width: 120px;
+    height: 120px;
+    top: 10px;
+    right: 10px;
+  }
+  .profile-pic:hover:before,
+  .profile-pic2:hover:before,
+  .profile-pic3:hover:before {
+    right: -60px;
+  }
+  .pum {
+    font-size: 120%;
+  }
+  #topTracksChart {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-pic, .profile-pic2, .profile-pic3 {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
+  }
+  .profile-pic:before,
+  .profile-pic2:before,
+  .profile-pic3:before {
+    width: 100px;
+    height: 100px;
+    top: 5px;
+    right: 5px;
+  }
+  .profile-pic:hover:before,
+  .profile-pic2:hover:before,
+  .profile-pic3:hover:before {
+    right: -50px;
+  }
+  .header {
+    padding: 30px 10px;
+    font-size: 1.3rem;
+  }
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navbar a {
+    font-size: 16px;
+  }
+  .pum {
+    font-size: 110%;
+  }
+  #topTracksChart {
+    max-width: 100%;
+    height: auto;
+  }
+}
