@@ -9,10 +9,9 @@
 </head>
 <body>
 
-
   <div id="loader">
     <div class="spinner"></div>
-  </div> 
+  </div>
 
   <div class="login-container">
     <div class="auth-buttons">
@@ -24,7 +23,6 @@
   <div class="grid-container">
     <header class="header">Central NewJeans</header>
     <div id="welcome-msg" class="welcome-msg" style="grid-area: welcome;"></div>
-
 
     <nav class="navbar">
       <ul>
@@ -39,107 +37,77 @@
       <br><br>
       <div class="profile-pic" id="att" title="attention">
         <img src="https://cdn-images.dzcdn.net/images/cover/a87d8380756567e6bc1f65d43ac2b46d/0x1900-000000-80-0-0.jpg" />
-        <audio id="att-audio" src="att.mp3"></audio> 
+        <audio id="att-audio" src="att.mp3"></audio>
       </div>
       <div class="profile-pic2" id="getup" title="get up">
         <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/NewJeans_-_Get_Up.png" />
-        <audio id="getup-audio" src="getup.mp3"></audio> 
+        <audio id="getup-audio" src="getup.mp3"></audio>
       </div>
       <div class="profile-pic3" id="spn" title="supernatural">
         <img src="https://cdn-images.dzcdn.net/images/cover/826894f2ec39ae1eea620eddecdcf6b7/0x1900-000000-80-0-0.jpg" />
-        <audio id="spn-audio" src="spn.mp3"></audio> 
+        <audio id="spn-audio" src="spn.mp3"></audio>
       </div>
     </nav>
 
     <main class="main">
-
       <div id="lastfm-data" style="text-align:center; margin:20px; color: white;">
-  <h2>Músicas com mais scrobbles no Last.fm</h2>
-<canvas id="topTracksChart" style="max-width:900px; height:300px; margin:auto;"></canvas>
-</div>
-<script>
-async function loadTopTracksChart() {
-  const apiKey = "a71bbaa5dc59f9c44d82c577105fa61f"; 
-  const artist = "NewJeans";
+        <h2>Músicas com mais scrobbles no Last.fm</h2>
+        <canvas id="topTracksChart" style="max-width:900px; height:300px; margin:auto;"></canvas>
+      </div>
 
-  try {
-    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${apiKey}&format=json&limit=10`);
-    const data = await response.json();
-
-   
-    let trackNames = data.toptracks.track.map(t => t.name);
-    let playCounts = data.toptracks.track.map(t => parseInt(t.playcount));
-
-  
-    let combined = trackNames.map((name, i) => ({ name, count: playCounts[i] }));
-
-    combined.sort((a, b) => b.count - a.count);
-
-    trackNames = combined.map(item => item.name);
-    playCounts = combined.map(item => item.count);
-
-    const ctx = document.getElementById('topTracksChart').getContext('2d');
-
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: trackNames,
-        datasets: [{
-          borderRadius: 10,
-          borderSkipped: false,
-          label: 'Scrobbles',
-          data: playCounts,
-          backgroundColor: 'rgba(14, 75, 124, 0.7)',
-          borderColor: 'rgba(14, 75, 124, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          title: {
-            display: true,
-           
-            color: 'white'
-          }
-        },
-        scales: {
-          x: {
-            ticks: { color: 'white' },
-            grid: { color: 'rgba(255,255,255,0.2)' }
-          },
-          y: {
-            beginAtZero: true,
-            ticks: { color: 'white' },
-            grid: { color: 'rgba(255,255,255,0.2)' }
+      <script>
+        async function loadTopTracksChart() {
+          const apiKey = "a71bbaa5dc59f9c44d82c577105fa61f";
+          const artist = "NewJeans";
+          try {
+            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${artist}&api_key=${apiKey}&format=json&limit=10`);
+            const data = await response.json();
+            let trackNames = data.toptracks.track.map(t => t.name);
+            let playCounts = data.toptracks.track.map(t => parseInt(t.playcount));
+            let combined = trackNames.map((name, i) => ({ name, count: playCounts[i] }));
+            combined.sort((a, b) => b.count - a.count);
+            trackNames = combined.map(item => item.name);
+            playCounts = combined.map(item => item.count);
+            const ctx = document.getElementById('topTracksChart').getContext('2d');
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: trackNames,
+                datasets: [{
+                  borderRadius: 10,
+                  borderSkipped: false,
+                  label: 'Scrobbles',
+                  data: playCounts,
+                  backgroundColor: 'rgba(14, 75, 124, 0.7)',
+                  borderColor: 'rgba(14, 75, 124, 1)',
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                responsive: true,
+                plugins: {
+                  legend: { display: false },
+                  title: { display: true, color: 'white' }
+                },
+                scales: {
+                  x: { ticks: { color: 'white' }, grid: { color: 'rgba(255,255,255,0.2)' } },
+                  y: { beginAtZero: true, ticks: { color: 'white' }, grid: { color: 'rgba(255,255,255,0.2)' } }
+                }
+              }
+            });
+          } catch (error) {
+            console.error("Erro ao carregar dados do Last.fm:", error);
           }
         }
-      }
-    });
-
-  } catch (error) {
-    console.error("Erro ao carregar dados do Last.fm:", error);
-  }
-}
-
-window.addEventListener('load', loadTopTracksChart);
-
-</script>
+        window.addEventListener('load', loadTopTracksChart);
+      </script>
 
       <h1 style="text-align: center; color: white;">História do NewJeans</h1>
-      <p class="pum"> 
-
-    
-
+      <p class="pum">
         NewJeans é um grupo feminino sul-coreano formado pela ADOR, uma subsidiária da HYBE Corporation, que estreou oficialmente em julho de 2022. O grupo rapidamente chamou a atenção do público e da mídia pelo seu estilo único, que combina uma sonoridade fresca e retrô com visuais modernos e uma identidade visual marcante.
-
         O nome “NewJeans” foi escolhido para representar a ideia de um novo ícone de moda e cultura, assim como o jeans é uma peça clássica e atemporal do vestuário, simbolizando conforto e estilo que atravessam gerações. Elas vieram para trazer uma vibe nova e descolada ao cenário do K-pop.
-
         Antes do debut, as integrantes passaram por um rigoroso processo de treinamento, focado não apenas em performance, mas também em criar uma conexão genuína com os fãs. Seu debut veio com o lançamento do mini-álbum New Jeans, que contou com músicas que rapidamente se tornaram hits, como “Attention” e “Hype Boy”.
-
         Além do sucesso musical, NewJeans conquistou muitos seguidores com seu estilo descontraído, acessível e seu jeito autêntico, destacando-se da típica imagem “idol” tradicional. O grupo é reconhecido por representar uma nova geração, mesclando talento, carisma e uma forte presença digital.
-
         Desde o debut, o NewJeans vem crescendo rápido, recebendo prêmios importantes, participando de programas televisivos e colaborando com diversas marcas internacionais. Elas são consideradas uma das promessas mais fortes da nova safra do K-pop.
       </p>
     </main>
@@ -182,19 +150,22 @@ window.addEventListener('load', loadTopTracksChart);
     btnSim.addEventListener('click', desbloquear);
     btnNao.addEventListener('click', desbloquear);
 
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.body.classList.add('loaded'); 
-        setTimeout(() => { popup.style.display = 'flex'; }, 600);
-      }, 1500); 
-    });
+   window.addEventListener('load', () => {
+  if (!sessionStorage.getItem('popupShown')) {
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+      popup.style.display = 'flex';
+      sessionStorage.setItem('popupShown', 'true');
+    }, 1500);
+  } else {
+    document.body.classList.add('loaded');
+  }
+});
 
     const welcomeDiv = document.getElementById('welcome-msg');
     const username = localStorage.getItem('loggedUser');
-    if(username){
-      welcomeDiv.textContent = `Bem-vindo(a), ${username}!`;
-    }
+    if(username){ welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; }
   </script>
-  
+
 </body>
 </html>
