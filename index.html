@@ -125,55 +125,60 @@
   </div>
 
   <script>
-    const popup = document.getElementById('popup');
-    const btnSim = document.getElementById('sim');
-    const btnNao = document.getElementById('nao');
+  // popup
+  const popup = document.getElementById('popup');
+  const btnSim = document.getElementById('sim');
+  const btnNao = document.getElementById('nao');
 
-    const audiogetup = document.getElementById('getup-audio');
-    const capagetup = document.getElementById('getup');
-
-    const audiospn = document.getElementById('spn-audio');
-    const capaspn = document.getElementById('spn');
-
-    const audioatt = document.getElementById('att-audio');
-    const capaatt = document.getElementById('att');
-
-    capagetup.addEventListener('mouseenter', () => { audiogetup.currentTime = 0; audiogetup.play(); });
-    capagetup.addEventListener('mouseleave', () => { audiogetup.pause(); });
-
-    capaspn.addEventListener('mouseenter', () => { audiospn.currentTime = 0; audiospn.play(); });
-    capaspn.addEventListener('mouseleave', () => { audiospn.pause(); });
-
-    capaatt.addEventListener('mouseenter', () => { audioatt.currentTime = 0; audioatt.play(); });
-    capaatt.addEventListener('mouseleave', () => { audioatt.pause(); });
-
-    function desbloquear() { popup.style.display = 'none'; }
-    btnSim.addEventListener('click', desbloquear);
-    btnNao.addEventListener('click', desbloquear);
-
-   window.addEventListener('load', () => {
-  if (!sessionStorage.getItem('popupShown')) {
-    setTimeout(() => {
-      document.body.classList.add('loaded');
-      popup.style.display = 'flex';
-      sessionStorage.setItem('popupShown', 'true');
-    }, 1500);
-  } else {
-    document.body.classList.add('loaded');
+  function desbloquear() { 
+    popup.style.display = 'none'; 
   }
-});
 
-    const welcomeDiv = document.getElementById('welcome-msg');
-    const username = localStorage.getItem('loggedUser');
-    if(username){ welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; }
-    
-    const welcomeDiv = document.getElementById('welcome-msg');
-const username = localStorage.getItem('loggedUser');
-if(username){ 
-    welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; 
-    welcomeDiv.style.display = 'block'; 
-}
-  </script>
+  btnSim.addEventListener('click', desbloquear);
+  btnNao.addEventListener('click', desbloquear);
+
+  window.addEventListener('load', () => {
+    if (!sessionStorage.getItem('popupShown')) {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+        popup.style.display = 'flex';
+        sessionStorage.setItem('popupShown', 'true');
+      }, 1500);
+    } else {
+      document.body.classList.add('loaded');
+    }
+  });
+
+  // bem vinso
+  const welcomeDiv = document.getElementById('welcome-msg');
+  const username = localStorage.getItem('loggedUser');
+  if (username) { 
+      welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; 
+      welcomeDiv.style.display = 'block'; 
+  }
+
+  // audios
+  const audios = [
+    { capa: 'getup', audio: 'getup-audio' },
+    { capa: 'spn', audio: 'spn-audio' },
+    { capa: 'att', audio: 'att-audio' }
+  ];
+
+  audios.forEach(item => {
+    const capa = document.getElementById(item.capa);
+    const audio = document.getElementById(item.audio);
+
+    capa.addEventListener('mouseenter', () => {
+      audio.currentTime = 0;
+      audio.play();
+    });
+
+    capa.addEventListener('mouseleave', () => {
+      audio.pause();
+    });
+  });
+</script>
+
 
 </body>
 </html>
