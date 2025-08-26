@@ -172,3 +172,8 @@ body {
     padding: 6px;
   }
 }
+
+#logoutBtn{
+  position: relative;
+  padding-right: 500;
+}

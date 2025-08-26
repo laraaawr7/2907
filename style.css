@@ -28,20 +28,19 @@ body {
 
 .auth-buttons {
   display: flex;
-  gap: 10px; 
+  gap: 10px;
   justify-content: center;
+  margin-bottom: 15px;
 }
-
-.auth-buttons a {
-  padding: 8px 18px;
+.auth-buttons a { padding: 8px 18px; 
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.5s;
-  text-decoration: none;
-  display: inline-block; 
-}
+   border-radius: 5px; 
+   font-size: 16px;
+    cursor: pointer; 
+    transition: 0.5s; 
+    text-decoration: none; 
+  display: inline-block; }
+
 
 .btn-login {
   background-color: #0e4b7c;
@@ -49,8 +48,9 @@ body {
 }
 
 .btn-login:hover {
-  background-color: #98b8fca2;
+  background-color:#98b8fca2;
 }
+
 
 .btn-signup {
   background-color: white;
@@ -61,7 +61,6 @@ body {
   background-color: #98b8fca2;
   color: white;
 }
-
 
 .grid-container { 
   display: grid;
