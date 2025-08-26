@@ -166,6 +166,13 @@
     const welcomeDiv = document.getElementById('welcome-msg');
     const username = localStorage.getItem('loggedUser');
     if(username){ welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; }
+    
+    const welcomeDiv = document.getElementById('welcome-msg');
+const username = localStorage.getItem('loggedUser');
+if(username){ 
+    welcomeDiv.textContent = `Bem-vindo(a), ${username}!`; 
+    welcomeDiv.style.display = 'block'; 
+}
   </script>
 
 </body>

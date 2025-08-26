@@ -348,3 +348,6 @@ body {
     height: auto;
   }
 }
+#welcome-msg {
+  display: none; 
+}
