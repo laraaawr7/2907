@@ -30,9 +30,10 @@ body {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 15px;
-}
-.auth-buttons a { padding: 8px 18px; 
+  margin-bottom: 15px;}
+.auth-buttons a { 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 8px 18px; 
   border: none;
    border-radius: 5px; 
    font-size: 16px;
